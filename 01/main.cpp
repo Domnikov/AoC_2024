@@ -27,7 +27,7 @@ auto count1() {
     FOR(i,left.size()) {
         auto l = left[i];
         auto r = right[i];
-        result = llabs(l - r);
+        result += llabs(l - r);
         P(l,r,result);
     }
     return result;
