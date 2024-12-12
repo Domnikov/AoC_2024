@@ -33,6 +33,17 @@ auto count1() {
 
 auto count2() {
     LL result = 0;
+    VECI left,right;
+    for(const auto& s:in) {
+        auto ss = replace(s, "   ", " ");
+        auto arr = splitStr(ss, ' ');
+        left.push_back(stoi(arr[0]));
+        right.push_back(stoi(arr[1]));
+    }
+    FOR(i,left.size()) {
+        auto l = left[i];
+        result += l * std::count(BE(right), l);
+    }
     return result;
 }
 
