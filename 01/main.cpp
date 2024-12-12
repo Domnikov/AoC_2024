@@ -21,8 +21,8 @@ auto count1() {
         left.push_back(stoi(arr[0]));
         right.push_back(stoi(arr[1]));
     }
-    std::sort(BE(left);
-    std::sort(BE(right);
+    std::sort(BE(left));
+    std::sort(BE(right));
     return result;
 }
 
