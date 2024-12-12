@@ -24,7 +24,10 @@ auto count1() {
     std::sort(BE(left));
     std::sort(BE(right));
     FOR(i,left.size()) {
-        result = llabs(left[i] - right[i]);
+        auto l = left[i];
+        auto r = right[i];
+        result = llabs(l - r);
+        P(l,r,result);
     }
     return result;
 }
