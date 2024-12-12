@@ -16,6 +16,7 @@ auto count1() {
     LL result = 0;
     VECI left,right;
     for(const auto& s:in) {
+        P(in);
         auto ss = replace(s, "   ", " ");
         auto arr = splitStr(ss, ' ');
         left.push_back(stoi(arr[0]));
