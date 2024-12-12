@@ -16,7 +16,6 @@ auto count1() {
     LL result = 0;
     VECI left,right;
     for(const auto& s:in) {
-        P(in);
         auto ss = replace(s, "   ", " ");
         auto arr = splitStr(ss, ' ');
         left.push_back(stoi(arr[0]));
@@ -28,7 +27,6 @@ auto count1() {
         auto l = left[i];
         auto r = right[i];
         result += llabs(l - r);
-        P(l,r,result);
     }
     return result;
 }
