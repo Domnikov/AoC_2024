@@ -24,7 +24,7 @@ auto count1() {
     std::sort(BE(left));
     std::sort(BE(right));
     FOR(i,left.size()) {
-        result = asb(left[i] - right[i]);
+        result = std::asb(left[i] - right[i]);
     }
     return result;
 }
