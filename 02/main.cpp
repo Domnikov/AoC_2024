@@ -25,7 +25,8 @@ auto count1() {
             auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
             auto diff = abs(sdiff);
             if (!dir){
-                dir = sdiff < 0 ? -1 : 1;
+                if (sdiff < 0){ P("<0");dir = -1;}
+                if (sdiff > 0){ P(">0");dir = 1;}
             }
             P( sdiff, dir, diff , stoi(vec[v-1]) , stoi(vec[v]));
             if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
