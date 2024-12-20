@@ -14,6 +14,7 @@ auto in = getInput();
 
 auto count1() {
     LL score = 0;
+    P_LINE;
     FOR(i, in.size()){
         auto vec = splitStr(in[i], ' ');
         P(vec);
