@@ -23,6 +23,8 @@ auto count1() {
         FOR (v,vec.size()){
             if (v == 0){continue;}
             auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
+            auto diff = abs(sdiff);
+            P( sdiff, diff , stoi(vec[v-1]) , stoi(vec[v]));
             if (!dir){
                 dir = sdiff < 0 ? -1 : 1;
             } else if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
@@ -30,7 +32,6 @@ auto count1() {
                 safe = false;
                 break;
             }
-            auto diff = abs(sdiff);
             if (diff < 1 || diff > 3) {
             P( "safe", diff , stoi(vec[v-1]) , stoi(vec[v]));
                 safe = false;
