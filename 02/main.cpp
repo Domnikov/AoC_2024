@@ -26,12 +26,13 @@ auto count1() {
             if (!dir){
                 dir = sdiff < 0 ? -1 : 1;
             } else if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
+                P("dir", dir, sdiff);
                 safe = false;
                 break;
             }
             auto diff = abs(sdiff);
-            P(  diff , stoi(vec[v-1]) , stoi(vec[v]));
             if (diff < 1 || diff > 3) {
+            P( "safe", diff , stoi(vec[v-1]) , stoi(vec[v]));
                 safe = false;
                 break;
             }
