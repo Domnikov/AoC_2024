@@ -14,10 +14,8 @@ auto in = getInput();
 
 auto count1() {
     LL score = 0;
-    P (in);
     FOR (i, in.size()){
         auto vec = splitStr(in[i], ' ');
-        P (vec);
         bool safe = true;
         int dir = 0;
         FOR (v,vec.size()){
@@ -25,22 +23,18 @@ auto count1() {
             auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
             auto diff = abs(sdiff);
             if (!dir){
-                if (sdiff < 0){ P("<0");dir = -1;}
-                if (sdiff > 0){ P(">0");dir = 1;}
+                if (sdiff < 0){ dir = -1;}
+                if (sdiff > 0){ dir = 1;}
             }
-            P( sdiff, dir, diff , stoi(vec[v-1]) , stoi(vec[v]));
             if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
-                P("dir", dir, sdiff);
                 safe = false;
                 break;
             }
             if (diff < 1 || diff > 3) {
-            P( "safe", diff , stoi(vec[v-1]) , stoi(vec[v]));
                 safe = false;
                 break;
             }
         }
-        if(safe){P("safe");}else {P("unsafe");}
         score += safe;
     }
     return score;
