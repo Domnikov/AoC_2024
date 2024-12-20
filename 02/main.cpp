@@ -24,10 +24,11 @@ auto count1() {
             if (v == 0){continue;}
             auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
             auto diff = abs(sdiff);
-            P( sdiff, diff , stoi(vec[v-1]) , stoi(vec[v]));
             if (!dir){
                 dir = sdiff < 0 ? -1 : 1;
-            } else if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
+            }
+            P( sdiff, dir, diff , stoi(vec[v-1]) , stoi(vec[v]));
+            if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
                 P("dir", dir, sdiff);
                 safe = false;
                 break;
