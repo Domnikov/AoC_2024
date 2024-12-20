@@ -14,12 +14,12 @@ auto in = getInput();
 
 auto count1() {
     LL score = 0;
-    P_LINE;
-    FOR(i, in.size()){
+    P (in);
+    FOR (i, in.size()){
         auto vec = splitStr(in[i], ' ');
-        P(vec);
+        P (vec);
         bool safe = true;
-        FOR(v,vec.size()){
+        FOR (v,vec.size()){
             if (v == 0){continue;}
             if (vec[v-1] <= vec[v]) {
                 safe = false;
