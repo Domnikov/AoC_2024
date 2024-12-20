@@ -12,30 +12,34 @@
 
 auto in = getInput();
 
+auto isSafe(const auto& vec){
+    bool safe = true;
+    int dir = 0;
+    FOR (v,vec.size()){
+        if (v == 0){continue;}
+        auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
+        auto diff = abs(sdiff);
+        if (!dir){
+            if (sdiff < 0){ dir = -1;}
+            if (sdiff > 0){ dir = 1;}
+        }
+        if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
+            safe = false;
+            break;
+        }
+        if (diff < 1 || diff > 3) {
+            safe = false;
+            break;
+        }
+    }
+    return safe;
+}
+
 auto count1() {
     LL score = 0;
     FOR (i, in.size()){
         auto vec = splitStr(in[i], ' ');
-        bool safe = true;
-        int dir = 0;
-        FOR (v,vec.size()){
-            if (v == 0){continue;}
-            auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
-            auto diff = abs(sdiff);
-            if (!dir){
-                if (sdiff < 0){ dir = -1;}
-                if (sdiff > 0){ dir = 1;}
-            }
-            if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
-                safe = false;
-                break;
-            }
-            if (diff < 1 || diff > 3) {
-                safe = false;
-                break;
-            }
-        }
-        score += safe;
+        score += isSafe(vec);
     }
     return score;
 }
