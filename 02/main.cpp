@@ -19,9 +19,17 @@ auto count1() {
         auto vec = splitStr(in[i], ' ');
         P (vec);
         bool safe = true;
+        bool dir = 0;
         FOR (v,vec.size()){
             if (v == 0){continue;}
-            auto diff = abs(stoi(vec[v-1]) - stoi(vec[v]));
+            auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
+            if (!dir){
+                dir = sdiff < 0 ? -1 : 1;
+            } else if( (dir < 0 && sdiff > 0) || (dir > 0 && sdiff < 0) ) {
+                safe = false;
+                break;
+            }
+            auto diff = abs(sdiff);
             P(  diff , stoi(vec[v-1]) , stoi(vec[v]));
             if (diff < 1 || diff > 3) {
                 safe = false;
