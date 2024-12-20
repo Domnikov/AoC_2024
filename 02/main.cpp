@@ -38,6 +38,7 @@ auto count1() {
                 break;
             }
         }
+        if(safe)P("safe");else P("unsafe");
         score += safe;
     }
     return score;
