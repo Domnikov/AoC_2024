@@ -46,6 +46,21 @@ auto count1() {
 
 auto count2() {
     LL score = 0;
+    FOR (i, in.size()){
+        auto vec = splitStr(in[i], ' ');
+        FOR (v,vec.size()){
+            VECS nvec;
+            FOR (vv,vec.size()){
+                if(v!=vv){
+                    nvec.push_back(vec[vv]);
+                }
+            }
+            if(isSafe(nvec)){
+                ++score;
+                continue;
+            }
+        }
+    }
     return score;
 }
 
