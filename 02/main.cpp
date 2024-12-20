@@ -57,7 +57,7 @@ auto count2() {
             }
             if(isSafe(nvec)){
                 ++score;
-                continue;
+                break;
             }
         }
     }
