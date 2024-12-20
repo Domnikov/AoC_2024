@@ -21,7 +21,7 @@ auto count1() {
         bool safe = true;
         FOR (v,vec.size()){
             if (v == 0){continue;}
-            auto diff = vec[v-1] - vec[v];
+            auto diff = stoi(vec[v-1]) - stoi(vec[v]);
             if (diff < 1 || diff > 3) {
                 safe = false;
                 break;
