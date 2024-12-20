@@ -15,7 +15,7 @@ auto in = getInput();
 auto count1() {
     LL score = 0;
     FOR(i, in.size()){
-        auto vec = splitStr(in[i], " ");
+        auto vec = splitStr(in[i], ' ');
         bool safe = true;
         FOR(v,vec.size()){
             if (v == 0){continue;}
