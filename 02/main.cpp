@@ -19,7 +19,7 @@ auto count1() {
         auto vec = splitStr(in[i], ' ');
         P (vec);
         bool safe = true;
-        bool dir = 0;
+        int dir = 0;
         FOR (v,vec.size()){
             if (v == 0){continue;}
             auto sdiff = stoi(vec[v-1]) - stoi(vec[v]);
