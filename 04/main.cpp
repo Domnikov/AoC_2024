@@ -56,6 +56,7 @@ auto turn90(const VECS& vec){
 auto count1() {
     LL score = 0;
     auto in90 = turn90(in);
+    auto in45 = turn45(in);
     score = count(in) + count(in90);
     return score;
 }
