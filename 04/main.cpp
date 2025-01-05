@@ -29,15 +29,15 @@ auto count(const VECS& vec){
 
 auto turn45(const VECS& vec){
     VECS res;
+    S str('0', vec.size()*2);
+    P(1,str,2);
     for(LL n = 0;n < (vec.size()+vec[0].size()-1);++n){
-        S str('0', vec.size()*2);
         res.push_back(str);
     }
     //
     //     str += vec[r][c];
     //     res.push_back(str);
     // }
-    P_VECV(res);
     return res;
 }
 
