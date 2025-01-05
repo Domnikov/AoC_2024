@@ -24,7 +24,7 @@ auto count1() {
         std::smatch match = *i;
         std::string match_str = match.str();
         std::regex num_reg("[0-9]+");
-        auto it = std::regex_search(line, color_regex);
+        auto it = std::regex_search(match_str, color_regex);
         auto num1 = *it;
         auto num2 = *(++it);
         P(num1, num2);
