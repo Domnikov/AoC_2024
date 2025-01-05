@@ -27,6 +27,7 @@ auto count1() {
         std::smatch sm;
         std::regex_search(match_str, sm, num_reg);
         auto num1 = sm.str();
+        match_str = sm.suffix();
         std::regex_search(match_str, sm, num_reg);
         auto num2 = sm.str();
         P(num1, num2);
