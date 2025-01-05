@@ -16,7 +16,7 @@ auto in = getInput();
 auto count1() {
     LL score = 0;
     auto s = in[0];
-    std::regex word_regex("mul(");
+    std::regex word_regex("mul\\([0-9],[0-9]\\)");
     auto words_begin = std::sregex_iterator(s.begin(), s.end(), word_regex);
     auto words_end = std::sregex_iterator();
     for (std::sregex_iterator i = words_begin; i != words_end; ++i)
