@@ -29,7 +29,7 @@ auto count(const VECS& vec){
 
 auto turn45(const VECS& vec){
     VECS res;
-    S str('0', vec.size()*2);
+    S str(vec.size()*2, 't');
     P(1,str,2);
     for(LL n = 0;n < (vec.size()+vec[0].size()-1);++n){
         res.push_back(str);
