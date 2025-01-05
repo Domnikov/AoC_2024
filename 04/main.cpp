@@ -25,9 +25,22 @@ auto count(const VECS& vec){
     return res;
 }
 
+auto turn90(const VECS& vec){
+    VECS res;
+    FOR(c, vec[0].size()){
+        S str;
+        FOR(r, vec.size()){
+            str += vec[r][c];
+        }
+        res.push_back(str);
+    }
+    return res;
+}
+
 auto count1() {
     LL score = 0;
-    score = count(in);
+    auto in90 = turn90(in);
+    score = count(in) + count(in90);
     return score;
 }
 
