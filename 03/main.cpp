@@ -49,7 +49,6 @@ auto count2() {
         if(match_str == "do()"){enabled = true;}
         else if(match_str == "don't()"){enabled = false;}
         else if(enabled){
-            P("Enabled", match_str);
             std::regex num_reg("[0-9]+");
             std::smatch sm;
             std::regex_search(match_str, sm, num_reg);
@@ -59,7 +58,6 @@ auto count2() {
             auto num2 = stoi(sm.str());
             score += num1*num2;
         } else {
-            P("Disabled", match_str);
         }
     }
     return score;
