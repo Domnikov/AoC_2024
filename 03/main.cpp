@@ -29,8 +29,8 @@ auto count1() {
         auto num1 = stoi(sm.str());
         match_str = sm.suffix();
         std::regex_search(match_str, sm, num_reg);
-        auto num2 = sm.str();
-        P(num1, num2);
+        auto num2 = stoi(sm.str());
+        score += num1+num2;
     }
     return score;
 }
