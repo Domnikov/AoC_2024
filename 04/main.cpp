@@ -15,10 +15,12 @@ auto in = getInput();
 
 auto count(const VECS& vec){
     LL res = 0;
-    std::regex reg("XMAS|SAMX");
+    std::regex regfwd("XMAS");
+    std::regex regbwd("SAMX");
     for(auto s:vec){
-        std::ptrdiff_t cnt(std::distance( std::sregex_iterator(s.begin(), s.end(), reg), std::sregex_iterator()));
-        res += cnt;
+        std::ptrdiff_t cntfwd(std::distance( std::sregex_iterator(s.begin(), s.end(), regfwd), std::sregex_iterator()));
+        std::ptrdiff_t cntbwd(std::distance( std::sregex_iterator(s.begin(), s.end(), regbwd), std::sregex_iterator()));
+        res += cntfwd+cntbwd;
     }
     return res;
 }
