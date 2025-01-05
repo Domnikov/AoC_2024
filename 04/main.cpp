@@ -21,7 +21,9 @@ auto count(const VECS& vec){
         std::ptrdiff_t cntfwd(std::distance( std::sregex_iterator(s.begin(), s.end(), regfwd), std::sregex_iterator()));
         std::ptrdiff_t cntbwd(std::distance( std::sregex_iterator(s.begin(), s.end(), regbwd), std::sregex_iterator()));
         res += cntfwd+cntbwd;
+        P(s, cntfwd, cntbwd);
     }
+    P("Total", res);
     return res;
 }
 
@@ -40,7 +42,6 @@ auto turn90(const VECS& vec){
 auto count1() {
     LL score = 0;
     auto in90 = turn90(in);
-    P_VECV(in90);
     score = count(in) + count(in90);
     return score;
 }
