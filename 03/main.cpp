@@ -9,12 +9,21 @@
 #include <queue>
 #include <list>
 #include <limits>
+#include <regex>
 
 auto in = getInput();
 
 auto count1() {
     LL score = 0;
-
+    std::regex word_regex("(\\w+)");
+    auto words_begin = std::sregex_iterator(in.begin(), in.end(), word_regex);
+    auto words_end = std::sregex_iterator();
+    for (std::sregex_iterator i = words_begin; i != words_end; ++i)
+    {
+        std::smatch match = *i;
+        std::string match_str = match.str();
+        std::cout << "  " << match_str << '\n';
+    }
     return score;
 }
 
