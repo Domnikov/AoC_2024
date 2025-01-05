@@ -13,13 +13,19 @@
 
 auto in = getInput();
 
+auto count(const VECS& vec){
+    LL res = 0;
+    for(auto s:vec){
+        std::ptrdiff_t cnt(std::distance( std::sregex_iterator(s.begin(), s.end(), reg), std::sregex_iterator()));
+        res += cnt;
+    }
+    return res;
+}
+
 auto count1() {
     LL score = 0;
     std::regex reg("XMAS|SAMX");
-    for(auto s:in){
-        std::ptrdiff_t cnt(std::distance( std::sregex_iterator(s.begin(), s.end(), reg), std::sregex_iterator()));
-        score += cnt;
-    }
+    score = count(in);
     return score;
 }
 
