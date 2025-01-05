@@ -15,6 +15,11 @@ auto in = getInput();
 
 auto count1() {
     LL score = 0;
+    std::regex self_regex("XMAS|SAMX");
+    for(auto s:in){
+        std::ptrdiff_t cnt(std::distance( std::sregex_iterator(text.begin(), text.end(), expression), std::sregex_iterator()));
+        score += cnt;
+    }
     return score;
 }
 
