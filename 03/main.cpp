@@ -26,7 +26,7 @@ auto count1() {
         std::regex num_reg("[0-9]+");
         std::smatch sm;
         std::regex_search(match_str, sm, num_reg);
-        auto num1 = sm.str();
+        auto num1 = stoi(sm.str());
         match_str = sm.suffix();
         std::regex_search(match_str, sm, num_reg);
         auto num2 = sm.str();
