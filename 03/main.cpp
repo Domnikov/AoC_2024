@@ -30,7 +30,7 @@ auto count1() {
         match_str = sm.suffix();
         std::regex_search(match_str, sm, num_reg);
         auto num2 = stoi(sm.str());
-        score += num1+num2;
+        score += num1*num2;
     }
     return score;
 }
