@@ -34,10 +34,11 @@ auto turn45(const VECS& vec){
     for(LL n = 0;n < (vec.size()+vec[0].size()-1);++n){
         res.push_back(str);
     }
+    LL N = vec.size();
     FOR(c, vec[0].size()){
         FOR(r, vec.size()){
-            LL rr = 0;
-            LL cc = 0;
+            LL rr = N-r;
+            LL cc = N+c;
             res[rr][cc] = vec[r][c];
         }
     }
