@@ -41,19 +41,26 @@ auto count2() {
     std::regex word_regex("mul\\([0-9]+,[0-9]+\\)|do\\(\\)|don\\'t\\(\\)");
     auto words_begin = std::sregex_iterator(s.begin(), s.end(), word_regex);
     auto words_end = std::sregex_iterator();
+    bool enabled = true;
     for (std::sregex_iterator i = words_begin; i != words_end; ++i)
     {
         std::smatch match = *i;
         std::string match_str = match.str();
-        P(match_str);
-        // std::regex num_reg("[0-9]+");
-        // std::smatch sm;
-        // std::regex_search(match_str, sm, num_reg);
-        // auto num1 = stoi(sm.str());
-        // match_str = sm.suffix();
-        // std::regex_search(match_str, sm, num_reg);
-        // auto num2 = stoi(sm.str());
-        // score += num1*num2;
+        if(match_str == "do()"){enabled = true;}
+        else if(match_str == "don't()"){enabled = false;}
+        else if(enabled){
+            P("Enabled", match_str);
+            std::regex num_reg("[0-9]+");
+            std::smatch sm;
+            std::regex_search(match_str, sm, num_reg);
+            auto num1 = stoi(sm.str());
+            match_str = sm.suffix();
+            std::regex_search(match_str, sm, num_reg);
+            auto num2 = stoi(sm.str());
+            score += num1*num2;
+        } else {
+            P("Disabled", match_str);
+        }
     }
     return score;
 }
