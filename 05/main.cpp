@@ -34,7 +34,7 @@ std::pair<LL,LL> checkRule(VECI vec){
 }
 
 void flip(VECI& i, LL lhs, LL rhs){
-    return {-1,-1};
+    // return {-1,-1};
 }
 
 LL score2 = 0;
