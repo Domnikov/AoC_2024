@@ -89,18 +89,20 @@ auto count2() {
                 char d1 = in[r+1][c-1];
                 char d2 = in[r+1][c+1];
                 // P(c1,c2,d1,d2);
+                LL found = 0;
                 if((c1 == 'M' || c2 == 'M')&&(c1 == 'S' || c2 == 'S')){
                     if((d1 == 'M' || d2 == 'M')&&(d1 == 'S' || d2 == 'S')){
                         // P_LINE;
-                        score++;
+                        found = 1;
                     }
                 }
                 if((c1 == 'M' || d1 == 'M')&&(c1 == 'S' || d1 == 'S')){
                     if((c2 == 'M' || d2 == 'M')&&(c2 == 'S' || d2 == 'S')){
                         // P_LINE;
-                        score++;
+                        found = 1;
                     }
                 }
+                score += fuond;
             }
         }
     }
