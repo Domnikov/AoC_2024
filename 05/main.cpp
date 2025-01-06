@@ -33,6 +33,10 @@ std::pair<LL,LL> checkRule(VECI vec){
     return {-1,-1};
 }
 
+void flip(VECI& i, LL lhs, LL rhs){
+    return {-1,-1};
+}
+
 LL score2 = 0;
 auto count1() {
     LL score = 0;
@@ -47,7 +51,11 @@ auto count1() {
             if(pair.first == -1){
                 score+=vec[vec.size()/2];
             }else{
-                ;
+                do{
+                    flip(vec, pair.first, pair.second);
+                    pair = checkRule(vec);
+                }while(pair.first != -1);
+                score2+=vec[vec.size()/2];
             }
         }else{
             auto vec = vecsToVeci(splitStr(l,'|'));
