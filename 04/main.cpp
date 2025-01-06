@@ -69,48 +69,28 @@ auto count2() {
     for(LL r = 1;r < in.size()-1;++r){
         for(LL c = 1;c < in[r].size()-1;++c){
             if(in[r][c] == 'A'){
-                S s1,s2,s3;
-                s1.push_back(in[r-1][c-1]);
-                s1.push_back(in[r-1][c  ]);
-                s1.push_back(in[r-1][c+1]);
-                s2.push_back(in[r  ][c-1]);
-                s2.push_back(in[r  ][c  ]);
-                s2.push_back(in[r  ][c+1]);
-                s3.push_back(in[r+1][c-1]);
-                s3.push_back(in[r+1][c  ]);
-                s3.push_back(in[r+1][c+1]);
-                VECS v;
-                v.push_back(s1);
-                v.push_back(s2);
-                v.push_back(s3);
-                // P_VECV(v);
                 char c1 = in[r-1][c-1];
                 char c2 = in[r-1][c+1];
                 char d1 = in[r+1][c-1];
                 char d2 = in[r+1][c+1];
-                // P(c1,c2,d1,d2);
                 LL found = 0;
                 if((c1 == 'M')&&(c2 == 'S')){
                     if((d1 == 'M')&&(d2 == 'S')){
-                        // P_LINE;
                         found = 1;
                     }
                 }
                 if((c2 == 'M')&&(c1 == 'S')){
                     if((d2 == 'M')&&(d1 == 'S')){
-                        // P_LINE;
                         found = 1;
                     }
                 }
                 if((c1 == 'M')&&(d1 == 'S')){
                     if((c2 == 'M')&&(d2 == 'S')){
-                        // P_LINE;
                         found = 1;
                     }
                 }
                 if((d1 == 'M')&&(c1 == 'S')){
                     if((d2 == 'M')&&(c2 == 'S')){
-                        // P_LINE;
                         found = 1;
                     }
                 }
@@ -129,6 +109,6 @@ int main(int argc, char** argv)
     //========================================================
 
     score = count2();
-    P_RR("Part2: %lld\n", score); // <2013 < 2076
+    P_RR("Part2: %lld\n", score);
     return 0;
 }
