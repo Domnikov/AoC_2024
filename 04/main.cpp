@@ -102,7 +102,7 @@ auto count2() {
                         found = 1;
                     }
                 }
-                score += fuond;
+                score += found;
             }
         }
     }
