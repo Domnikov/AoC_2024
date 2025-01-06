@@ -34,7 +34,6 @@ std::pair<LL,LL> checkRule(VECI vec){
 }
 
 void flip(VECI& v, LL lhs, LL rhs){
-    P(v,lhs,rhs);
     FOR(i, v.size()){
         if(v[i] == lhs){v[i] = rhs;}
         else if(v[i] == rhs){v[i] = lhs;}
@@ -59,7 +58,6 @@ auto count1() {
                     flip(vec, pair.first, pair.second);
                     pair = checkRule(vec);
                 }while(pair.first != -1);
-                P(vec);
                 score2+=vec[vec.size()/2];
             }
         }else{
