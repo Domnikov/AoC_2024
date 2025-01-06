@@ -18,7 +18,7 @@ std::map<LL,SETI> rules;
 bool checkRule(VECI vec){
     SETI passed;
 
-    for(auto i, vec){
+    for(auto i: vec){
         auto& rule = rules[i];
         for(auto r : rules){
             if(!passed.count(r)){
