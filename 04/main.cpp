@@ -72,12 +72,12 @@ auto count2() {
             s1.push_back(in[r-1][c-1]);
             s1.push_back(in[r-1][c  ]);
             s1.push_back(in[r-1][c+1]);
-            s1.push_back(in[r  ][c-1]);
-            s1.push_back(in[r  ][c  ]);
-            s1.push_back(in[r  ][c+1]);
-            s1.push_back(in[r+1][c-1]);
-            s1.push_back(in[r+1][c  ]);
-            s1.push_back(in[r+1][c+1]);
+            s2.push_back(in[r  ][c-1]);
+            s2.push_back(in[r  ][c  ]);
+            s2.push_back(in[r  ][c+1]);
+            s3.push_back(in[r+1][c-1]);
+            s3.push_back(in[r+1][c  ]);
+            s3.push_back(in[r+1][c+1]);
             VECS v;
             v.push_back(s1);
             v.push_back(s2);
