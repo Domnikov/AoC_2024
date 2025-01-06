@@ -59,9 +59,10 @@ auto count1() {
     auto in90 = turn90(in);
     auto in45 = turn45(in);
     auto in135 = turn45(in90);
-    P_VECV(in45);
-    P_VECV(in135);
-    score = count(in) + count(in90);
+    score = count(in)
+          + count(in90)
+          + count(in45)
+          + count(in135);
     return score;
 }
 
