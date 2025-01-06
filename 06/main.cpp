@@ -17,7 +17,9 @@ Point FindStart(const VECS& v){
     FOR(r, v.size()){
         FOR(c, v[r].size()){
             if(v[r][c] == '^'){
-                return Point{c,r};
+                Point p{c,r};
+                p.SetDirUp();
+                return p;
             }
         }
     }
@@ -27,6 +29,7 @@ Point FindStart(const VECS& v){
 
 
 Point cur;
+
 
 auto count1() {
     LL score = 0;
