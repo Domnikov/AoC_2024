@@ -83,21 +83,21 @@ auto count2() {
                 v.push_back(s1);
                 v.push_back(s2);
                 v.push_back(s3);
-                P_VECV(v);
+                // P_VECV(v);
                 char c1 = in[r-1][c-1];
                 char c2 = in[r-1][c+1];
                 char d1 = in[r+1][c-1];
                 char d2 = in[r+1][c+1];
-                P(c1,c2,d1,d2);
+                // P(c1,c2,d1,d2);
                 if((c1 == 'M' || c2 == 'M')&&(c1 == 'S' || c2 == 'S')){
                     if((d1 == 'M' || d2 == 'M')&&(d1 == 'S' || d2 == 'S')){
-                        P_LINE;
+                        // P_LINE;
                         score++;
                     }
                 }
                 if((c1 == 'M' || d1 == 'M')&&(c1 == 'S' || d1 == 'S')){
                     if((c2 == 'M' || d2 == 'M')&&(c2 == 'S' || d2 == 'S')){
-                        P_LINE;
+                        // P_LINE;
                         score++;
                     }
                 }
