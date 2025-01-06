@@ -16,8 +16,9 @@ auto in = getInput();
 Point FindStart(const VECS& v){
     FOR(r, v.size()){
         FOR(c, v[r].size()){
-            if v[r][c] == '^';
-            return {r,c};
+            if(v[r][c] == '^'){
+                return {r,c};
+            }
         }
     }
     P_LINE;
