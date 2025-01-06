@@ -15,7 +15,7 @@ auto in = getInput();
 
 std::map<LL,SETI> rules;
 
-bool checkRule(VECI vec){
+std::pair<LL,LL> checkRule(VECI vec){
     SETI passed;
     SETI pages_to_update;
     for(auto i: vec){
@@ -25,15 +25,15 @@ bool checkRule(VECI vec){
         auto& rule = rules[i];
         for(auto r : rule){
             if(!passed.count(r) && pages_to_update.count(r)){
-                return false;
+                return {r,i};
             }
         }
         passed.emplace(i);
     }
-    return true;
+    return {-1,-1};
 }
 
-
+LL score2 = 0;
 auto count1() {
     LL score = 0;
 
@@ -43,8 +43,11 @@ auto count1() {
 
         if(second_part){
             auto vec = vecsToVeci(splitStr(l,','));
-            if(checkRule(vec)){
+            auto pair = checkRule(vec);
+            if(pair.first == -1){
                 score+=vec[vec.size()/2];
+            }else{
+                ;
             }
         }else{
             auto vec = vecsToVeci(splitStr(l,'|'));
@@ -55,8 +58,7 @@ auto count1() {
 }
 
 auto count2() {
-    LL score = 0;
-    return score;
+    return score2;
 }
 
 int main(int argc, char** argv)
