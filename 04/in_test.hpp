@@ -5,7 +5,7 @@ inline auto getInput()
 {
     VECS input {
 "......",
-".M.S..",
+".M.M..",
 "..A...",
 ".M.S..",
 "......"
