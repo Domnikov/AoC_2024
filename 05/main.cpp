@@ -33,8 +33,11 @@ std::pair<LL,LL> checkRule(VECI vec){
     return {-1,-1};
 }
 
-void flip(VECI& i, LL lhs, LL rhs){
-    // return {-1,-1};
+void flip(VECI& v, LL lhs, LL rhs){
+    FOR(i, v.size()){
+        if(v[i] == lhs){v[i] = rhs;}
+        if(v[i] == rhs){v[i] = lhs;}
+    }
 }
 
 LL score2 = 0;
