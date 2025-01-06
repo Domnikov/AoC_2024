@@ -84,7 +84,11 @@ auto count2() {
                 v.push_back(s2);
                 v.push_back(s3);
                 P_VECV(v);
-                P_LINE;
+                char c1 = in[r-1][c-1];
+                char c2 = in[r-1][c+1];
+                char d1 = in[r+1][c-1];
+                char d2 = in[r+1][c+1];
+                P(c1,c2,d1,d2);
                 if((in[r-1][c-1] == 'M' || in[r-1][c+1] == 'M')&&(in[r-1][c-1] == 'S' || in[r-1][c+1] == 'S')){
                     P_LINE;
                     if((in[r+1][c-1] == 'M' || in[r+1][c+1] == 'M')&&(in[r+1][c-1] == 'S' || in[r+1][c+1] == 'S')){
