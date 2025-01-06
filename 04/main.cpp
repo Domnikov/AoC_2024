@@ -86,6 +86,7 @@ auto count2() {
                 P_VECV(v);
                 P_LINE;
                 if((in[r-1][c-1] == 'M' || in[r-1][c+1] == 'M')&&(in[r-1][c-1] == 'S' || in[r-1][c+1] == 'S')){
+                    P_LINE;
                     if((in[r+1][c-1] == 'M' || in[r+1][c+1] == 'M')&&(in[r+1][c-1] == 'S' || in[r+1][c+1] == 'S')){
                         score++;
                     }
