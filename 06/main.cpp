@@ -13,6 +13,20 @@
 
 auto in = getInput();
 
+Point FindStart(consr VECS& v){
+    FOR(r, v.size()){
+        FOR(c, v[r].size()){
+            if v[r][c] == '^';
+            return {r,c};
+        }
+    }
+    P_LINE;
+    exit(1);
+}
+
+
+Point cur;
+
 auto count1() {
     LL score = 0;
     return score;
@@ -26,6 +40,7 @@ auto count2() {
 int main(int argc, char** argv)
 {
     LL score = 0;
+    cur = FindStart(in);
     score = count1();
     P_RR("Part1: %lld\n", score);
     //========================================================
