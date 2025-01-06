@@ -17,7 +17,7 @@ Point FindStart(const VECS& v){
     FOR(r, v.size()){
         FOR(c, v[r].size()){
             if(v[r][c] == '^'){
-                return {r,c};
+                return Point{c,r};
             }
         }
     }
