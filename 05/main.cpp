@@ -20,7 +20,7 @@ bool checkRule(VECI vec){
 
     for(auto i: vec){
         auto& rule = rules[i];
-        for(auto r : rules){
+        for(auto r : rule){
             if(!passed.count(r)){
                 P("violated",r,"for",i);
                 return false;
