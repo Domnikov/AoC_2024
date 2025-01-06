@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 {
     LL score = 0;
     score = count1();
-    P_RR("Part1: %lld\n", score); // >2579
+    P_RR("Part1: %lld\n", score); // 2579
     //========================================================
 
     score = count2();
