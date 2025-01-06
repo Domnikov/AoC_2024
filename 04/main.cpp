@@ -90,14 +90,26 @@ auto count2() {
                 char d2 = in[r+1][c+1];
                 // P(c1,c2,d1,d2);
                 LL found = 0;
-                if((c1 == 'M' || c2 == 'M')&&(c1 == 'S' || c2 == 'S')){
-                    if((d1 == 'M' || d2 == 'M')&&(d1 == 'S' || d2 == 'S')){
+                if((c1 == 'M')&&(c2 == 'S')){
+                    if((d1 == 'M')&&(d2 == 'S')){
                         // P_LINE;
                         found = 1;
                     }
                 }
-                if((c1 == 'M' || d1 == 'M')&&(c1 == 'S' || d1 == 'S')){
-                    if((c2 == 'M' || d2 == 'M')&&(c2 == 'S' || d2 == 'S')){
+                if((c2 == 'M')&&(c1 == 'S')){
+                    if((d2 == 'M')&&(d1 == 'S')){
+                        // P_LINE;
+                        found = 1;
+                    }
+                }
+                if((c1 == 'M')&&(d1 == 'S')){
+                    if((c2 == 'M')&&(d2 == 'S')){
+                        // P_LINE;
+                        found = 1;
+                    }
+                }
+                if((d1 == 'M')&&(c1 == 'S')){
+                    if((d2 == 'M')&&(c2 == 'S')){
                         // P_LINE;
                         found = 1;
                     }
@@ -117,6 +129,6 @@ int main(int argc, char** argv)
     //========================================================
 
     score = count2();
-    P_RR("Part2: %lld\n", score); // < 2076
+    P_RR("Part2: %lld\n", score); // <2013 < 2076
     return 0;
 }
