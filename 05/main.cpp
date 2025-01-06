@@ -15,7 +15,7 @@ auto in = getInput();
 
 std::map<LL,SETI> rules;
 
-bool checkRule(VECI vec)){
+bool checkRule(VECI vec){
     SETI passed;
 
     for(auto i, vec){
