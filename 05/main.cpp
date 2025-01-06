@@ -25,7 +25,6 @@ bool checkRule(VECI vec){
         auto& rule = rules[i];
         for(auto r : rule){
             if(!passed.count(r) && pages_to_update.count(r)){
-                P("violated",r,"for",i);
                 return false;
             }
         }
@@ -53,10 +52,6 @@ auto count1() {
             rules[vec[1]].emplace(vec[0]);
         }
     }
-    for(auto [key,v]:rules){
-        P(key,v);
-    }
-
     return score;
 }
 
