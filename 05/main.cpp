@@ -24,7 +24,9 @@ auto count1() {
         auto vec = splitStr(l,'|');
         rules[stoi(vec[1])].push_back(stoi(vec[0]));
     }
-    P(rules);
+    for(auto [key,v]:rules){
+        P(key,v);
+    }
 
     return score;
 }
