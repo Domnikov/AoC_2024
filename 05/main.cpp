@@ -42,7 +42,6 @@ auto count1() {
         if(l.empty()) {second_part = true;continue;}
 
         if(second_part){
-            P(l);
             auto vec = vecsToVeci(splitStr(l,','));
             if(checkRule(vec)){
                 score+=vec[vec.size()/2];
