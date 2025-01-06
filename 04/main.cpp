@@ -68,23 +68,23 @@ auto count2() {
     LL score = 0;
     for(LL r = 1;r < in.size()-1;++r){
         for(LL c = 1;c < in[r].size()-1;++c){
-            S s1,s2,s3;
-            s1.push_back(in[r-1][c-1]);
-            s1.push_back(in[r-1][c  ]);
-            s1.push_back(in[r-1][c+1]);
-            s2.push_back(in[r  ][c-1]);
-            s2.push_back(in[r  ][c  ]);
-            s2.push_back(in[r  ][c+1]);
-            s3.push_back(in[r+1][c-1]);
-            s3.push_back(in[r+1][c  ]);
-            s3.push_back(in[r+1][c+1]);
-            VECS v;
-            v.push_back(s1);
-            v.push_back(s2);
-            v.push_back(s3);
-            P_VECV(v);
-            P_LINE;
             if(in[r][c] == 'A'){
+                S s1,s2,s3;
+                s1.push_back(in[r-1][c-1]);
+                s1.push_back(in[r-1][c  ]);
+                s1.push_back(in[r-1][c+1]);
+                s2.push_back(in[r  ][c-1]);
+                s2.push_back(in[r  ][c  ]);
+                s2.push_back(in[r  ][c+1]);
+                s3.push_back(in[r+1][c-1]);
+                s3.push_back(in[r+1][c  ]);
+                s3.push_back(in[r+1][c+1]);
+                VECS v;
+                v.push_back(s1);
+                v.push_back(s2);
+                v.push_back(s3);
+                P_VECV(v);
+                P_LINE;
                 if((in[r-1][c-1] == 'M' || in[r-1][c+1] == 'M')&&(in[r-1][c-1] == 'S' || in[r-1][c+1] == 'S')){
                     if((in[r+1][c-1] == 'M' || in[r+1][c+1] == 'M')&&(in[r+1][c-1] == 'S' || in[r+1][c+1] == 'S')){
                         score++;
