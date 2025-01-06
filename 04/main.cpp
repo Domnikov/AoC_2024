@@ -29,7 +29,7 @@ auto count(const VECS& vec){
 
 auto turn45(const VECS& vec){
     VECS res;
-    S str;//(vec.size()*2, ' ');
+    S str;
     for(LL n = 0;n < (vec.size()+vec[0].size()-1);++n){
         res.push_back(str);
     }
@@ -39,18 +39,6 @@ auto turn45(const VECS& vec){
             res[rr].push_back(vec[r][c]);
         }
     }
-
-    // (0,0)(0,1)
-    // (1,0)(1,1)
-    //
-    // (0,0)
-    // (1,0)(0,1)
-    // (1,1)
-    //
-    //     str += vec[r][c];
-    //     res.push_back(str);
-    // }
-    P_VECV(res);
     return res;
 }
 
@@ -70,6 +58,9 @@ auto count1() {
     LL score = 0;
     auto in90 = turn90(in);
     auto in45 = turn45(in);
+    auto in135 = turn45(in90);
+    P_VECV(in45);
+    P_VECV(in135);
     score = count(in) + count(in90);
     return score;
 }
