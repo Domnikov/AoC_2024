@@ -19,7 +19,7 @@ bool checkRule(VECI vec){
     SETI passed;
     SETI pages_to_update;
     for(auto i: vec){
-        pages_to_update.emplce(i);
+        pages_to_update.emplace(i);
     }
     for(auto i: vec){
         auto& rule = rules[i];
