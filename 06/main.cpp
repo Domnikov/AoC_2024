@@ -13,7 +13,7 @@
 
 auto in = getInput();
 
-Point FindStart(consr VECS& v){
+Point FindStart(const VECS& v){
     FOR(r, v.size()){
         FOR(c, v[r].size()){
             if v[r][c] == '^';
