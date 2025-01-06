@@ -28,11 +28,24 @@ Point FindStart(const VECS& v){
 }
 
 
-Point cur;
-
+bool IsInside(const VECS& vec, Point p){
+    return p.y >= 0 && p.y < vec.size() && p.x >= 0 && p.x < vec[y].size();
+}
 
 auto count1() {
     LL score = 0;
+    Point cur;
+
+    cur = FindStart(in);
+
+    for(;;){
+        ++score;
+        cur.Move();
+        if(!IsInside(in, cur)){P(cur);break;}
+        if(in[cur.x][cur.y] != '.'){
+            cur.TurnCw();
+        }
+    }
     return score;
 }
 
@@ -44,7 +57,6 @@ auto count2() {
 int main(int argc, char** argv)
 {
     LL score = 0;
-    cur = FindStart(in);
     score = count1();
     P_RR("Part1: %lld\n", score);
     //========================================================
