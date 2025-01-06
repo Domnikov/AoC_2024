@@ -34,6 +34,7 @@ std::pair<LL,LL> checkRule(VECI vec){
 }
 
 void flip(VECI& v, LL lhs, LL rhs){
+    P(v,lhs,rhs);
     FOR(i, v.size()){
         if(v[i] == lhs){v[i] = rhs;}
         if(v[i] == rhs){v[i] = lhs;}
