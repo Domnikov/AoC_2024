@@ -13,7 +13,7 @@
 
 auto in = getInput();
 
-std::map<LL,VECI> rules;
+std::map<LL,std::set<LL>> rules;
 
 auto count1() {
     LL score = 0;
@@ -22,7 +22,7 @@ auto count1() {
         if(l.empty()) break;
 
         auto vec = splitStr(l,'|');
-        rules[stoi(vec[1])].push_back(stoi(vec[0]));
+        rules[stoi(vec[1])].emplace(stoi(vec[0]));
     }
     for(auto [key,v]:rules){
         P(key,v);
