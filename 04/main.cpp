@@ -66,8 +66,8 @@ auto count1() {
 
 auto count2() {
     LL score = 0;
-    for(LL r = 1;r < vec.size()-1;++r){
-        for(LL c = 1;c < vec[r].size()-1;++c){
+    for(LL r = 1;r < in.size()-1;++r){
+        for(LL c = 1;c < in[r].size()-1;++c){
             if(in[r][c] == 'A'){
                 if((in[r-1][c-1] == 'M' || in[r-1][c+1] == 'M')&&(in[r-1][c-1] == 'S' || in[r-1][c+1] == 'S')){
                     if((in[r+1][c-1] == 'M' || in[r+1][c+1] == 'M')&&(in[r+1][c-1] == 'S' || in[r+1][c+1] == 'S')){
