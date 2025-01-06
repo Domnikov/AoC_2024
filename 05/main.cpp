@@ -37,7 +37,7 @@ void flip(VECI& v, LL lhs, LL rhs){
     P(v,lhs,rhs);
     FOR(i, v.size()){
         if(v[i] == lhs){v[i] = rhs;}
-        if(v[i] == rhs){v[i] = lhs;}
+        else if(v[i] == rhs){v[i] = lhs;}
     }
 }
 
