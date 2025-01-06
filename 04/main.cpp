@@ -90,14 +90,14 @@ auto count2() {
                 char d2 = in[r+1][c+1];
                 P(c1,c2,d1,d2);
                 if((c1 == 'M' || c2 == 'M')&&(c1 == 'S' || c2 == 'S')){
-                    P_LINE;
                     if((d1 == 'M' || d2 == 'M')&&(d1 == 'S' || d2 == 'S')){
+                        P_LINE;
                         score++;
                     }
                 }
                 if((c1 == 'M' || d1 == 'M')&&(c1 == 'S' || d1 == 'S')){
-                    P_LINE;
                     if((c2 == 'M' || d2 == 'M')&&(c2 == 'S' || d2 == 'S')){
+                        P_LINE;
                         score++;
                     }
                 }
