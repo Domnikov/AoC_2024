@@ -58,6 +58,7 @@ auto count1() {
                     flip(vec, pair.first, pair.second);
                     pair = checkRule(vec);
                 }while(pair.first != -1);
+                P(vec);
                 score2+=vec[vec.size()/2];
             }
         }else{
