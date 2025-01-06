@@ -141,6 +141,8 @@ using VECPLL=std::vector<std::pair<LL,LL>>;
 #define VECF  std::vector<double>
 #define VECS  std::vector<S>
 #define VECSS std::vector<std::vector<S>>
+#define SETI std::set<LL>
+#define SETS std::set<S>
 
 namespace std{
 
