@@ -21,7 +21,7 @@ auto count1() {
     for(auto l:in){
         if(l.empty()) break;
 
-        auto vec = SplitStr(l,'|');
+        auto vec = splitStr(l,'|');
         rules[stoi(vec[1])].push_back(stoi(vec[0]));
     }
     P(rules);
