@@ -47,7 +47,7 @@ auto turn90(const VECS& vec){
     FOR(c, vec[0].size()){
         S str;
         FOR(r, vec.size()){
-            str += vec[r][c];
+            str += vec[vec.size()-1-r][c];
         }
         res.push_back(str);
     }
