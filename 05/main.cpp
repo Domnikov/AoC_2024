@@ -17,11 +17,14 @@ std::map<LL,SETI> rules;
 
 bool checkRule(VECI vec){
     SETI passed;
-
+    SETI pages_to_update;
+    for(auto i: vec){
+        pages_to_update.emplce(i);
+    }
     for(auto i: vec){
         auto& rule = rules[i];
         for(auto r : rule){
-            if(!passed.count(r)){
+            if(!passed.count(r) && pages_to_update.count(r)){
                 P("violated",r,"for",i);
                 return false;
             }
