@@ -13,8 +13,19 @@
 
 auto in = getInput();
 
+std::map<LL,VECI> rules;
+
 auto count1() {
     LL score = 0;
+
+    for(auto l:in){
+        if(l.empty()) break;
+
+        auto vec = SplitStr(l,'|');
+        rules[stoi(vec[1])].push_back(stoi(vec[0]));
+    }
+    P(rules);
+
     return score;
 }
 
