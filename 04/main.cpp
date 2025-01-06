@@ -21,9 +21,7 @@ auto count(const VECS& vec){
         std::ptrdiff_t cntfwd(std::distance( std::sregex_iterator(s.begin(), s.end(), regfwd), std::sregex_iterator()));
         std::ptrdiff_t cntbwd(std::distance( std::sregex_iterator(s.begin(), s.end(), regbwd), std::sregex_iterator()));
         res += cntfwd+cntbwd;
-        P(s, cntfwd, cntbwd);
     }
-    P("Total", res);
     return res;
 }
 
@@ -75,7 +73,7 @@ int main(int argc, char** argv)
 {
     LL score = 0;
     score = count1();
-    P_RR("Part1: %lld\n", score); // 2579
+    P_RR("Part1: %lld\n", score);
     //========================================================
 
     score = count2();
