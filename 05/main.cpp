@@ -13,16 +13,41 @@
 
 auto in = getInput();
 
-std::map<LL,std::set<LL>> rules;
+std::map<LL,SETI> rules;
+
+bool checkRule(VECI vec)){
+    SETI passed;
+
+    for(auto i, vec){
+        auto& rule = rules[i];
+        for(auto r : rules){
+            if(!passed.count(r)){
+                P("violated",r,"for",i);
+                return false;
+            }
+        }
+        passed.emplace(i);
+    }
+    return true;
+}
+
 
 auto count1() {
     LL score = 0;
 
+    bool second_part = false;
     for(auto l:in){
-        if(l.empty()) break;
+        if(l.empty()) {second_part = true;continue;}
 
-        auto vec = splitStr(l,'|');
-        rules[stoi(vec[1])].emplace(stoi(vec[0]));
+        if(second_part){
+            auto vec = vecsToVeci(splitStr(l,','));
+            if(checkRule(vec)){
+                score+=vec[vec.size()/2]
+            }
+        }else{
+            auto vec = vecsToVeci(splitStr(l,'|'));
+            rules[vec[1]].emplace(vec[0]);
+        }
     }
     for(auto [key,v]:rules){
         P(key,v);
