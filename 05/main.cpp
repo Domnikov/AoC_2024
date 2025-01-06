@@ -42,7 +42,7 @@ auto count1() {
         if(second_part){
             auto vec = vecsToVeci(splitStr(l,','));
             if(checkRule(vec)){
-                score+=vec[vec.size()/2]
+                score+=vec[vec.size()/2];
             }
         }else{
             auto vec = vecsToVeci(splitStr(l,'|'));
