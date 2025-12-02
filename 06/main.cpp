@@ -53,7 +53,7 @@ auto count1() {
             P(cur, "turn");
         } else {
             cur = next;
-            in[cur.x][cur.y] == 'o'){
+            in[cur.x][cur.y] == 'o');
             P(cur, "move");
         }
 
