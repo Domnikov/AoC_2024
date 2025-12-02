@@ -29,7 +29,7 @@ Point FindStart(const VECS& v){
 
 
 bool IsInside(const VECS& vec, Point p){
-    return p.y >= 0 && p.y < vec.size() && p.x >= 0 && p.x < vec[y].size();
+    return p.y >= 0 && p.y < vec.size() && p.x >= 0 && p.x < vec[p.y].size();
 }
 
 auto count1() {
@@ -40,11 +40,13 @@ auto count1() {
 
     for(;;){
         ++score;
-        cur.Move();
+        auto next = cur;
+        while(in[cur.x][cur.y] != '#'){
+
         if(!IsInside(in, cur)){P(cur);break;}
-        if(in[cur.x][cur.y] != '.'){
             cur.TurnCw();
         }
+
     }
     return score;
 }
