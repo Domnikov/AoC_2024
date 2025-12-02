@@ -56,11 +56,32 @@ auto count1() {
     return score;
 }
 
-auto count2() {
-    auto in = getInput();
-    Point cur;
+std::pair<bool, Point> CheckLoop(VECS in, Point cur, std::set<Point> visited)
+{
+    auto obsticle = cur.GetNext();
+    in[obsticle.y][obsticle.x] = '#';
+    for(;IsInside(in, cur);){
+        auto next = cur.GetNext();
+        if(!IsInside(in, next))
+        {
+            break;
+        }
+        if(in[next.y][next.x] == '#'){
+            cur.TurnCw();
+        } else {
+            cur = next;
+            if (visited.insert(cur).second == false) {
+                return {true, obsticle};
+            }
+        }
+    }
+    return {false, Point{}};
+}
 
-    cur = FindStart(in);
+auto count2() {
+    std::set<Point> all_obsticles;
+    auto in = getInput();
+    auto cur = FindStart(in);
     std::set<Point> visited;
     visited.insert(cur);
     for(;IsInside(in, cur);){
@@ -77,10 +98,14 @@ auto count2() {
                 P_LINE;
                 exit(1);
             }
+            auto [is_loop, obsticle] = CheckLoop(in, cur, visited);
+            if(is_loop){
+                all_obsticles.insert(obsticle);
+            }
         }
 
     }
-    return visited.size();
+    return all_obsticles.size();
 }
 
 int main(int argc, char** argv)
