@@ -44,7 +44,7 @@ auto count1() {
         auto next = cur.GetNext();
         if(!IsInside(in, next))
         {
-            P(cur, "exit");
+            P(next, "exit");
             break;
         }
         if(in[next.x][next.y] == '#'){
