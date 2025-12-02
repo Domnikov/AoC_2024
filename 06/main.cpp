@@ -37,6 +37,7 @@ auto count1() {
     Point cur;
 
     cur = FindStart(in);
+    P(cur);
 
     for(;;){
         ++score;
