@@ -39,16 +39,16 @@ auto count1() {
     cur = FindStart(in);
     P(cur);
 
-    for(;;){
+    for(;IsInside(in, cur);){
         ++score;
         while(in[cur.x][cur.y] != '#'){
-        cur.Move();
-        if(!IsInside(in, cur))
-        {
+            cur.Move();
+            if(!IsInside(in, cur))
+            {
+                P(cur);
+                break;
+            }
             P(cur);
-            break;
-        }
-        P(cur);
         }
         cur.TurnCw();
 
