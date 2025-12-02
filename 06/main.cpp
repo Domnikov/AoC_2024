@@ -57,7 +57,7 @@ auto count1() {
         }
 
     }
-    P(cur);
+    P(in);
     return score;
 }
 
