@@ -39,34 +39,24 @@ auto count1() {
     cur = FindStart(in);
     P(cur);
 
-            P_LINE
     for(;IsInside(in, cur);){
-            P_LINE
         ++score;
-            P_LINE
-        while(in[cur.x][cur.y] != '#'){
-            P_LINE
-            cur.Move();
-            P_LINE
-            if(!IsInside(in, cur))
-            {
-                P_LINE
-                P(cur);
-            P_LINE
-                break;
-            }
-            P_LINE
+        auto next = cur;
+        next.Move();
+        if(!IsInside(in, next))
+        {
             P(cur);
-            P_LINE
+            break;
         }
-            P_LINE
-        cur.TurnCw();
-            P_LINE
+        if(in[cur.x][cur.y] == '#'){
+            cur.TurnCw();
+        } else {
+            cur = next;
+        }
+        P(cur);
 
     }
-            P_LINE
     P(cur);
-            P_LINE
     return score;
 }
 
