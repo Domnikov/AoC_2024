@@ -116,10 +116,10 @@ int main(int argc, char** argv)
 {
     LL score = 0;
     score = count1();
-    P_RR("Part1: %lld\n", score); //> 5238
+    P_RR("Part1: %lld\n", score);
     //========================================================
 
     score = count2();
-    P_RR("Part2: %lld\n", score);
+    P_RR("Part2: %lld\n", score); // < 1949
     return 0;
 }
