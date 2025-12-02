@@ -48,6 +48,7 @@ auto count1() {
             P(cur);
             break;
         }
+        P(cur);
         }
         cur.TurnCw();
 
