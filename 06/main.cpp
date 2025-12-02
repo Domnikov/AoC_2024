@@ -36,7 +36,7 @@ auto count1() {
 
     cur = FindStart(in);
     in[cur.y][cur.x] = 'o';
-    LL score = 0;
+    LL score = 1;
     for(;IsInside(in, cur);){
         auto next = cur.GetNext();
         if(!IsInside(in, next))
