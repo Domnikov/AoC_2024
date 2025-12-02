@@ -17,7 +17,7 @@ Point FindStart(const VECS& v){
     FOR(r, v.size()){
         FOR(c, v[r].size()){
             if(v[r][c] == '^'){
-                Point p{(LL)c,(LL)r, Point::Direction::Up};
+                Point p{(LL)r,(LL)c, Point::Direction::Up};
                 return p;
             }
         }
