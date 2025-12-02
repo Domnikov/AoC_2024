@@ -77,6 +77,7 @@ auto count2() {
         }
 
     }
+    P(visited);
     return visited.size();
 }
 
