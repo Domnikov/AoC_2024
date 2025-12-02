@@ -46,6 +46,7 @@ auto count1() {
         }
         if(in[next.y][next.x] == '#'){
             cur.TurnCw();
+            P_VECV(in);
             // P(cur, "turn");
         } else {
             cur = next;
