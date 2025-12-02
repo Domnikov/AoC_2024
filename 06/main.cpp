@@ -48,7 +48,7 @@ auto count1() {
             P(cur, "exit");
             break;
         }
-        if(in[cur.x][cur.y] == '#'){
+        if(in[next.x][next.y] == '#'){
             cur.TurnCw();
             P(cur, "turn");
         } else {
