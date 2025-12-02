@@ -50,10 +50,11 @@ auto count1() {
         }
         if(in[cur.x][cur.y] == '#'){
             cur.TurnCw();
+            P(cur, "cur");
         } else {
             cur = next;
+            P(cur, "next");
         }
-        P(cur);
 
     }
     P(cur);
