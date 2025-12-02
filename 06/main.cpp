@@ -41,24 +41,24 @@ auto count1() {
         auto next = cur.GetNext();
         if(!IsInside(in, next))
         {
-            P(next, "exit");
+            // P(next, "exit");
             break;
         }
         if(in[next.y][next.x] == '#'){
             cur.TurnCw();
-            P(cur, "turn");
+            // P(cur, "turn");
         } else {
             cur = next;
             if (in[cur.y][cur.x] != 'o'){
                 score++;
                 in[cur.y][cur.x] = 'o';
             }
-            P_VECV(in);
-            P(cur, "move");
+            // P_VECV(in);
+            // P(cur, "move");
         }
 
     }
-    P_VECV(in);
+    // P_VECV(in);
     return score;
 }
 
