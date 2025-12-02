@@ -272,7 +272,7 @@ void _P_MAPV (const std::map<T, G>& map)
 
     if(!map.empty())
     {
-        for(auto& m : map)
+        for(const auto& m : map)
         {
             std::cout << "\t" << m.first << ": " << m.second << "\n";
         }
@@ -406,3 +406,124 @@ inline S replace(const S& s, const S& from, const S& to = "")
 inline std::pair<LL, LL> operator+(const std::pair<LL,LL>& lhs, const std::pair<LL,LL>& rhs) {
     return {lhs.first+rhs.first, lhs.second+rhs.second};
 }
+
+struct Point{
+    enum class Direction{
+        None ,
+        Up   ,
+        Down ,
+        Left ,
+        Right
+    };
+
+    Point(){}
+    Point(size_t x, size_t y):x(x),y(y){}
+    Point(LL zyx):x(zyx%w),y((zyx%ww)/w),z(zyx/ww){}
+    Point(LL zyx, Direction dir):x(zyx%w),y((zyx%ww)/w),z(zyx/ww), dir(dir){}
+    Point(LL x, LL y):x(x),y(y){}
+    Point(LL x, LL y, Direction dir):x(x),y(y),dir(dir){}
+    Point(LL x, LL y, LL z):x{x},y{y},z{z}{}
+    Point(const Point& p):x(p.x),y(p.y),z(p.z),dir(p.dir){}
+    Point(Point&& p):x(p.x),y(p.y),z(p.z),dir(p.dir){}
+    void operator=(const Point& p){
+        x = p.x;
+        y = p.y;
+        z = p.z;
+        dir = p.dir;
+    }
+
+    void operator=(Point&& p){
+        x = p.x;
+        y = p.y;
+        z = p.z;
+        dir = p.dir;
+    }
+
+    LL ToOne()const{return z*ww+y*w+x;}
+    operator LL(){return ToOne();}
+
+    void move(const Point& p){
+        x+=p.x;
+        y+=p.y;
+        z+=p.z;
+    }
+
+    LL DistManh(const Point& p){return DistManh(*this, p);}
+    static LL DistManh(const Point& p1, const Point& p2){
+        return labs(p1.x-p2.x)+labs(p1.y-p2.y)+labs(p1.z-p2.z);
+    }
+
+    Point operator+(const Point& p){move(p);return *this;}
+
+    friend bool operator==(const Point& lhs, const Point& rhs){return lhs.x == rhs.x && lhs.y == rhs.y;}
+    friend bool operator<(const Point& lhs, const Point& rhs){return lhs.ToOne() < rhs.ToOne();}
+    friend std::ostream& operator<<( std::ostream& dest, const Point& p )
+    {
+        dest << "[x=" << p.x<<",y="<<p.y<<",z="<<p.z<<"]";
+        switch(p.dir){
+            case Direction::None : dest << ",none" ; break;
+            case Direction::Up   : dest << ",up"   ; break;
+            case Direction::Down : dest << ",down" ; break;
+            case Direction::Left : dest << ",left" ; break;
+            case Direction::Right: dest << ",right"; break;
+            default         : dest << ",???"  ; break;
+        }
+        return dest;
+    }
+
+    static inline LL w = 1000000;
+    static inline LL ww = 1000000;
+    LL x=0;
+    LL y=0;
+    LL z=0;
+    Direction dir = Direction::None;
+
+    bool IsDirNone (){return dir == Direction::None ;}
+    bool IsDirUp   (){return dir == Direction::Up   ;}
+    bool IsDirDown (){return dir == Direction::Down ;}
+    bool IsDirLeft (){return dir == Direction::Left ;}
+    bool IsDirRight(){return dir == Direction::Right;}
+
+    void SetDirNone (){dir = Direction::None ;}
+    void SetDirUp   (){dir = Direction::Up   ;}
+    void SetDirDown (){dir = Direction::Down ;}
+    void SetDirLeft (){dir = Direction::Left ;}
+    void SetDirRight(){dir = Direction::Right;}
+
+    void TurnCw(){
+        switch(dir){
+            case Direction::Up   : dir = Direction::Right;break;
+            case Direction::Down : dir = Direction::Left;break;
+            case Direction::Left : dir = Direction::Up;break;
+            case Direction::Right: dir = Direction::Down;break;
+        }
+    }
+
+    void TurnCcw(){
+        switch(dir){
+            case Direction::Up   : dir = Direction::Left;break;
+            case Direction::Down : dir = Direction::Right;break;
+            case Direction::Left : dir = Direction::Down;break;
+            case Direction::Right: dir = Direction::Up;break;
+        }
+    }
+
+    void Move(LL steps = 1){
+        switch(dir){
+            case Direction::Up   : y-=steps;break;
+            case Direction::Down : y+=steps;break;
+            case Direction::Left : x-=steps;break;
+            case Direction::Right: x+=steps;break;
+        }
+    }
+
+    Point GetNext(LL steps = 1){
+        switch(dir){
+            case Direction::Up   : return Point{x, y-steps, dir};
+            case Direction::Down : return Point{x, y+steps, dir};
+            case Direction::Left : return Point{x-steps, y, dir};
+            case Direction::Right: return Point{x+steps, y, dir};
+        }
+        throw std::runtime_error("Direction is None");
+    }
+};
