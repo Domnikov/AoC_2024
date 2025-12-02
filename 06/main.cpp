@@ -57,7 +57,7 @@ auto count1() {
         }
 
     }
-    P_VECH(in);
+    P_VECV(in);
     return score;
 }
 
