@@ -36,12 +36,10 @@ auto count1() {
     Point cur;
 
     cur = FindStart(in);
-    P(cur);
 
     for(;IsInside(in, cur);){
         ++score;
         auto next = cur.GetNext();
-        P(next);
         if(!IsInside(in, next))
         {
             P(next, "exit");
