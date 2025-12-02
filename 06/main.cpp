@@ -54,6 +54,7 @@ auto count1() {
         } else {
             cur = next;
             in[cur.x][cur.y] = 'o';
+            P_VECV(in);
             P(cur, "move");
         }
 
