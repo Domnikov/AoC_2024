@@ -45,15 +45,15 @@ auto count1() {
         next.Move();
         if(!IsInside(in, next))
         {
-            P(cur);
+            P(cur, "exit");
             break;
         }
         if(in[cur.x][cur.y] == '#'){
             cur.TurnCw();
-            P(cur, "cur");
+            P(cur, "turn");
         } else {
             cur = next;
-            P(cur, "next");
+            P(cur, "move");
         }
 
     }
