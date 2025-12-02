@@ -32,11 +32,11 @@ bool IsInside(const VECS& vec, Point p){
 }
 
 auto count1() {
-    LL score = 0;
     Point cur;
 
     cur = FindStart(in);
-
+    in[cur.y][cur.x] = 'o';
+    LL score = 0;
     for(;IsInside(in, cur);){
         auto next = cur.GetNext();
         if(!IsInside(in, next))
