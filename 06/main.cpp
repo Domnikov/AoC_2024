@@ -11,8 +11,6 @@
 #include <limits>
 #include <regex>
 
-auto in = getInput();
-
 Point FindStart(const VECS& v){
     FOR(r, v.size()){
         FOR(c, v[r].size()){
@@ -32,6 +30,7 @@ bool IsInside(const VECS& vec, Point p){
 }
 
 auto count1() {
+    auto in = getInput();
     Point cur;
 
     cur = FindStart(in);
@@ -58,7 +57,29 @@ auto count1() {
 }
 
 auto count2() {
-    LL score = 0;
+    auto in = getInput();
+    Point cur;
+
+    cur = FindStart(in);
+    in[cur.y][cur.x] = 'o';
+    LL score = 1;
+    for(;IsInside(in, cur);){
+        auto next = cur.GetNext();
+        if(!IsInside(in, next))
+        {
+            break;
+        }
+        if(in[next.y][next.x] == '#'){
+            cur.TurnCw();
+        } else {
+            cur = next;
+            if (in[cur.y][cur.x] != 'o'){
+                score++;
+                in[cur.y][cur.x] = 'o';
+            }
+        }
+
+    }
     return score;
 }
 
