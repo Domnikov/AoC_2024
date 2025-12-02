@@ -43,11 +43,14 @@ auto count1() {
         ++score;
         while(in[cur.x][cur.y] != '#'){
             cur.Move();
+            P_LINE
             if(!IsInside(in, cur))
             {
+                P_LINE
                 P(cur);
                 break;
             }
+            P_LINE
             P(cur);
         }
         cur.TurnCw();
