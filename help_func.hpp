@@ -439,7 +439,7 @@ struct Point{
         dir = p.dir;
     }
 
-    LL ToOne()const{return z*ww+y*w+x;}
+    LL ToOne()const{return (LL)dir*www+z*ww+y*w+x;}
     operator LL(){return ToOne();}
 
     void move(const Point& p){
@@ -455,7 +455,8 @@ struct Point{
 
     Point operator+(const Point& p){move(p);return *this;}
 
-    friend bool operator==(const Point& lhs, const Point& rhs){return lhs.x == rhs.x && lhs.y == rhs.y;}
+    friend bool operator==(const Point& lhs, const Point& rhs){return lhs.x == rhs.x && lhs.y == rhs.y && lhs.dir == rhs.dir;}
+    friend bool operator!=(const Point& lhs, const Point& rhs){return !(lhs == rhs);}
     friend bool operator<(const Point& lhs, const Point& rhs){return lhs.ToOne() < rhs.ToOne();}
     friend std::ostream& operator<<( std::ostream& dest, const Point& p )
     {
@@ -471,8 +472,9 @@ struct Point{
         return dest;
     }
 
-    static inline LL w = 1000000;
-    static inline LL ww = 1000000;
+    static inline LL w = 10000;
+    static inline LL ww = w*w;
+    static inline LL www = ww*w;
     LL x=0;
     LL y=0;
     LL z=0;
