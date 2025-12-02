@@ -41,16 +41,15 @@ auto count1() {
 
     for(;;){
         ++score;
-        auto next = cur;
         while(in[cur.x][cur.y] != '#'){
-
+        cur.Move();
         if(!IsInside(in, cur))
         {
             P(cur);
             break;
         }
-        // cur.TurnCw();
         }
+        cur.TurnCw();
 
     }
     P(cur);
