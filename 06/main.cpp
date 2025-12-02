@@ -73,7 +73,10 @@ auto count2() {
             cur.TurnCw();
         } else {
             cur = next;
-            visited.insert(cur);
+            if (visited.insert(cur).second == false) {
+                P_LINE;
+                exit(1);
+            }
         }
 
     }
