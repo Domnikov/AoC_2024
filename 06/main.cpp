@@ -38,7 +38,6 @@ auto count1() {
     cur = FindStart(in);
 
     for(;IsInside(in, cur);){
-        ++score;
         auto next = cur.GetNext();
         if(!IsInside(in, next))
         {
@@ -50,7 +49,10 @@ auto count1() {
             P(cur, "turn");
         } else {
             cur = next;
-            in[cur.y][cur.x] = 'o';
+            if (in[cur.y][cur.x] != 'o'){
+                score++;
+                in[cur.y][cur.x] = 'o';
+            }
             P_VECV(in);
             P(cur, "move");
         }
