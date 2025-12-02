@@ -42,6 +42,7 @@ auto count1() {
     for(;IsInside(in, cur);){
         ++score;
         auto next = cur.GetNext();
+        P(next);
         if(!IsInside(in, next))
         {
             P(next, "exit");
