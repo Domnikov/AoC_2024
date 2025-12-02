@@ -45,12 +45,12 @@ auto count1() {
             P(next, "exit");
             break;
         }
-        if(in[next.x][next.y] == '#'){
+        if(in[next.y][next.x] == '#'){
             cur.TurnCw();
             P(cur, "turn");
         } else {
             cur = next;
-            in[cur.x][cur.y] = 'o';
+            in[cur.y][cur.x] = 'o';
             P_VECV(in);
             P(cur, "move");
         }
