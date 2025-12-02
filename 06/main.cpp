@@ -62,7 +62,7 @@ auto count2() {
 
     cur = FindStart(in);
     std::set<Point> visited;
-    visited.insert(Point(cur.x, cur.y));
+    visited.insert(cur);
     for(;IsInside(in, cur);){
         auto next = cur.GetNext();
         if(!IsInside(in, next))
@@ -73,7 +73,7 @@ auto count2() {
             cur.TurnCw();
         } else {
             cur = next;
-            visited.insert(Point(cur.x, cur.y));
+            visited.insert(cur);
         }
 
     }
