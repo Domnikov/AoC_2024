@@ -62,7 +62,7 @@ auto count2() {
 
     cur = FindStart(in);
     in[cur.y][cur.x] = 'o';
-    LL score = 1;
+    std::set<Point> visited;
     for(;IsInside(in, cur);){
         auto next = cur.GetNext();
         if(!IsInside(in, next))
@@ -74,13 +74,13 @@ auto count2() {
         } else {
             cur = next;
             if (in[cur.y][cur.x] != 'o'){
-                score++;
+                visited.insert(Point(cur.x, cur.y));
                 in[cur.y][cur.x] = 'o';
             }
         }
 
     }
-    return score;
+    return visited.size();
 }
 
 int main(int argc, char** argv)
