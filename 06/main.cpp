@@ -44,11 +44,16 @@ auto count1() {
         auto next = cur;
         while(in[cur.x][cur.y] != '#'){
 
-        if(!IsInside(in, cur)){P(cur);break;}
-            cur.TurnCw();
+        if(!IsInside(in, cur))
+        {
+            P(cur);
+            break;
+        }
+        // cur.TurnCw();
         }
 
     }
+    P(cur);
     return score;
 }
 
