@@ -59,6 +59,10 @@ auto count1() {
 std::pair<bool, Point> CheckLoop(VECS in, Point cur, std::set<Point> visited)
 {
     auto obsticle = cur.GetNext();
+    if(!IsInside(in, obsticle))
+    {
+        return {false, Point{}};
+    }
     in[obsticle.y][obsticle.x] = '#';
     for(;IsInside(in, cur);){
         auto next = cur.GetNext();
